@@ -6,10 +6,11 @@ class Product
     protected $price;
     protected $quantity;
 
-    public function __construct($_title, $_price)
+    public function __construct($_title, $_price, $_quantity)
     {
         $this->title = $_title;
         $this->price = $_price;
+        $this->quantity = $_quantity;
     }
 
     // getter
