@@ -8,10 +8,14 @@ BONUS:
 Gestite eventuali eccezioni che si possono verificare utilizzando il try catch -->
 
 <?php
+// importo tutte le classi
 require_once __DIR__ . '/product/Product.php';
 require_once __DIR__ . '/product/Movie.php';
 require_once __DIR__ . '/product/Music.php';
 require_once __DIR__ . '/product/Book.php';
+require_once __DIR__ . '/user/Discount.php';
+require_once __DIR__ . '/user/User.php';
+require_once __DIR__ . '/user/UserPremium.php';
 
 // FILM
 // creo una nuova istanza della classe Movie
@@ -45,6 +49,12 @@ try {
 // creo una nuova istanza della classe Book
 $book1 = new Book("Harry Potter e la Pietra Filosofale", 14, 54, "J.K. Rowling");
 
+// UTENTE e UTENTE PREMIUM
+// creo una nuova istanza della classe User
+$user1 = new User('Luca', 'Rossi', 'luca.rossi@mail.it');
+
+// creo una nuova istanza della classe UserPremium
+$user2 = new UserPremium('Mario', 'Bianchi', 'm.bianchi@mail.com', 2009, 123);
 ?>
 
 
@@ -111,6 +121,30 @@ $book1 = new Book("Harry Potter e la Pietra Filosofale", 14, 54, "J.K. Rowling")
             <li>Scrittore: <?php echo $book1->get_writer() ?></li>
         </ul>
     </section>
+    <hr>
+    <hr>
+
+    <!-- sezione user -->
+    <section id="user">
+        <h1>Utente</h1>
+        <ul>
+            <li>Nome: <?php echo $user1->get_full_name() ?></li>
+            <li>E-mail: <?php echo $user1->get_email() ?></li>
+        </ul>
+    </section>
+
+    <!-- sezione user premium -->
+    <section id="user-premium">
+        <h1>Utente Premium</h1>
+        <ul>
+            <li>Nome: <?php echo $user2->get_full_name() ?></li>
+            <li>E-mail: <?php echo $user2->get_email() ?></li>
+            <li>Anno iscrizione: <?php echo $user2->get_entry_year() ?></li>
+            <li>Punti accumulati: <?php echo $user2->get_points() ?></li>
+            <li>Extra: <?php echo $user2->get_info_discount() ?></li>
+        </ul>
+    </section>
+
 </body>
 
 </html>
