@@ -13,6 +13,7 @@ require_once __DIR__ . '/product/Movie.php';
 require_once __DIR__ . '/product/Music.php';
 require_once __DIR__ . '/product/Book.php';
 
+// FILM
 // creo una nuova istanza della classe Movie
 $movie1 = new Movie("Il Signore degli Anelli - La Compagnia dell'Anello", 10, 47, "Peter Jackson");
 
@@ -25,7 +26,27 @@ try {
 } catch (Exception $e) {
     echo 'Error: ' . $e->getMessage();
 }
+
+// MUSICA
+// creo una nuova istanza della classe Music
+$cd1 = new Music("Black Holes And Revelations", 7, 32, "Muse");
+
+// inizializzo array contenente i brani del cd
+$list_tracks = ['Take a Bow', 'Starlight', 'Supermassive Black Hole', 'Map Of The Problematique'];
+
+// prova ad aggiungere la lista di brani, se c'è un errore viene stampato un messaggio a schermo
+try {
+    $cd1->set_tracks($list_tracks);
+} catch (Exception $e) {
+    echo 'Error: ' . $e->getMessage();
+}
+
+// LIBRO
+// creo una nuova istanza della classe Book
+$book1 = new Book("Harry Potter e la Pietra Filosofale", 14, 54, "J.K. Rowling");
+
 ?>
+
 
 <!DOCTYPE html>
 <html lang="it">
@@ -58,6 +79,38 @@ try {
         </ul>
     </section>
     <hr>
+
+    <!-- prodotti musica -->
+    <section id="music-products">
+        <h1>Sezione Musica</h1>
+        <ul>
+            <li>Titolo:<?php echo $cd1->get_title() ?></li>
+            <li>Prezzo: <?php echo $cd1->get_price() ?>€</li>
+            <li>Quantità disponibile: <?php echo $cd1->get_quantity() ?></li>
+            <li>Artista: <?php echo $cd1->get_artist() ?></li>
+            <li>
+                Brani:
+                <?php
+                $tracks = $cd1->get_tracks();
+                foreach ($tracks as $track) {
+                    echo $track . ', ';
+                }
+                ?>
+            </li>
+        </ul>
+    </section>
+    <hr>
+
+    <!-- prodotti libro -->
+    <section id="book-products">
+        <h1>Sezione Libri</h1>
+        <ul>
+            <li>Titolo:<?php echo $book1->get_title() ?></li>
+            <li>Prezzo: <?php echo $book1->get_price() ?>€</li>
+            <li>Quantità disponibile: <?php echo $book1->get_quantity() ?></li>
+            <li>Scrittore: <?php echo $book1->get_writer() ?></li>
+        </ul>
+    </section>
 </body>
 
 </html>
