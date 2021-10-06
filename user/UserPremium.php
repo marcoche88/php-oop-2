@@ -1,7 +1,7 @@
 <?php
 
-require_once __DIR__ . '/user/User.php';
-require_once __DIR__ . '/user/Discount.php';
+require_once __DIR__ . '/User.php';
+require_once __DIR__ . '/Discount.php';
 
 class UserPremium extends User
 {
@@ -24,5 +24,27 @@ class UserPremium extends User
         } else {
             $this->percentage = 20;
         }
+    }
+
+    // getter
+    public function get_entry_year()
+    {
+        return $this->entry_year;
+    }
+
+    public function get_points()
+    {
+        return $this->points;
+    }
+
+    // setter
+    public function set_entry_year($_entry_year)
+    {
+        $this->entry_year = $_entry_year;
+    }
+
+    public function set_points($_points)
+    {
+        $this->points = $_points;
     }
 }

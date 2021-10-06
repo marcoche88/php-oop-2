@@ -4,13 +4,12 @@ class Product
 {
     protected $title;
     protected $price;
-    protected $brand;
+    protected $quantity;
 
-    public function __construct($_title, $_price, $_brand)
+    public function __construct($_title, $_price)
     {
         $this->title = $_title;
         $this->price = $_price;
-        $this->brand = $_brand;
     }
 
     // getter
@@ -24,9 +23,9 @@ class Product
         return $this->price;
     }
 
-    public function get_brand()
+    public function get_quantity()
     {
-        return $this->brand;
+        return $this->quantity;
     }
 
     // setter
@@ -40,8 +39,8 @@ class Product
         $this->price = $_price;
     }
 
-    public function set_brand($_brand)
+    public function set_quantity($_quantity)
     {
-        $this->brand = $_brand;
+        $this->quantity = $_quantity;
     }
 }
